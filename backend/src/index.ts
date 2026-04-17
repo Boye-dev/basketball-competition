@@ -52,6 +52,19 @@ class Server {
       }),
     );
 
+    const allowedOrigins = [config.frontendUrl, config.adminUrl].filter(
+      Boolean,
+    );
+
+    this.app.use(
+      cors({
+        origin: allowedOrigins,
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+      }),
+    );
+
     this.app.use(helmet());
 
     const limiter = rateLimit({
@@ -70,13 +83,6 @@ class Server {
       },
     });
     this.app.use(limiter);
-
-    this.app.use(
-      cors({
-        origin: [config.frontendUrl, config.adminUrl],
-        credentials: true,
-      }),
-    );
     this.app.use(compression());
     this.app.use(express.json({ limit: "5mb" }));
     this.app.use(express.urlencoded({ extended: true, limit: "5mb" }));
