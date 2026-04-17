@@ -65,7 +65,22 @@ class Server {
       }),
     );
 
-    this.app.use(helmet());
+    this.app.options(
+      "/*splat",
+      cors({
+        origin: allowedOrigins,
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+      }),
+    );
+
+    this.app.use(
+      helmet({
+        crossOriginResourcePolicy: { policy: "cross-origin" },
+        crossOriginOpenerPolicy: false,
+      }),
+    );
 
     const limiter = rateLimit({
       windowMs: 15 * 60 * 1000,
