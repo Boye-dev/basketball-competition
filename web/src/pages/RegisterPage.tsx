@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useRef } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -13,6 +13,7 @@ import {
   Upload,
 } from "lucide-react";
 import api from "../lib/api";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
 
@@ -104,28 +105,8 @@ export default function RegisterPage() {
     name: "players",
   });
   const players = watch("players");
-
-  const getRecaptchaToken = useCallback(async (): Promise<string> => {
-    if (!RECAPTCHA_SITE_KEY) return "";
-    return new Promise((resolve) => {
-      (window as any).grecaptcha.ready(() => {
-        (window as any).grecaptcha
-          .execute(RECAPTCHA_SITE_KEY, { action: "register" })
-          .then((token: string) => resolve(token));
-      });
-    });
-  }, []);
-
-  useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY) return;
-    const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-    script.async = true;
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const nextStep = async () => {
     let valid = false;
@@ -149,12 +130,16 @@ export default function RegisterPage() {
       return;
     }
 
+    if (RECAPTCHA_SITE_KEY && !recaptchaToken) {
+      setError("Please complete the reCAPTCHA verification");
+      return;
+    }
+
     setSubmitting(true);
     setError("");
 
     try {
       const formData = new FormData();
-      const recaptchaToken = await getRecaptchaToken();
 
       formData.append("teamName", data.teamName);
       formData.append("email", data.email);
@@ -521,6 +506,19 @@ export default function RegisterPage() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* reCAPTCHA checkbox */}
+          {step === STEPS.length - 1 && RECAPTCHA_SITE_KEY && (
+            <div className="mt-6 flex justify-center">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={RECAPTCHA_SITE_KEY}
+                theme="dark"
+                onChange={(token) => setRecaptchaToken(token)}
+                onExpired={() => setRecaptchaToken(null)}
+              />
+            </div>
+          )}
 
           {/* Navigation buttons */}
           <div className="flex justify-between mt-10">
