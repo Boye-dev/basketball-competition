@@ -28,6 +28,7 @@ const registerTeamSchema = {
     freeThrowContest: Joi.string().required().messages({
       "string.empty": "Free Throw Contest representative is required",
     }),
+    recaptchaToken: Joi.string().optional().allow(""),
   }),
 };
 
