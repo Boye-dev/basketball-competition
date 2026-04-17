@@ -1,0 +1,91 @@
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ChevronRight } from 'lucide-react'
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-indigo-950" />
+
+      {/* Decorative shapes */}
+      <div className="absolute top-20 -right-20 w-96 h-96 rounded-full bg-accent-green/10 blur-3xl" />
+      <div className="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-accent-yellow/10 blur-3xl" />
+      <div className="absolute top-1/3 left-1/4 w-64 h-64 border-2 border-accent-sky/10 rounded-full rotate-45" />
+
+      {/* Angled accent bar */}
+      <div className="absolute top-0 right-0 w-2/3 h-2 bg-gradient-to-r from-accent-green via-accent-yellow to-accent-sky transform -skew-x-12" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-semibold tracking-widest uppercase bg-accent-green/20 text-accent-green rounded-full border border-accent-green/30">
+            Season 3.0
+          </span>
+        </motion.div>
+
+        <motion.h1
+          className="font-heading text-6xl md:text-8xl lg:text-9xl font-black leading-none mb-6"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+        >
+          <span className="text-white">Games</span>
+          <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-yellow via-accent-green to-accent-sky">
+            &amp; Fun
+          </span>
+        </motion.h1>
+
+        <motion.p
+          className="max-w-xl mx-auto text-lg md:text-xl text-gray-300 mb-10 font-body"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          The ultimate basketball competition is back. Gather your squad,
+          showcase your skills, and compete for glory.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45 }}
+        >
+          <Link
+            to="/register"
+            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-navy-900 bg-accent-yellow rounded-xl hover:bg-yellow-400 transition-all duration-300 shadow-lg shadow-accent-yellow/25 hover:shadow-accent-yellow/40 hover:-translate-y-0.5"
+          >
+            Register Now
+            <ChevronRight className="w-5 h-5" />
+          </Link>
+          <a
+            href="#event-info"
+            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-white border-2 border-white/20 rounded-xl hover:border-accent-sky/50 hover:text-accent-sky transition-all duration-300"
+          >
+            Learn More
+          </a>
+        </motion.div>
+
+        {/* Basketball decorative element */}
+        <motion.div
+          className="mt-16 flex justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          <div className="relative w-40 h-40 md:w-56 md:h-56">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 shadow-2xl shadow-orange-500/30" />
+            <div className="absolute inset-2 rounded-full border-2 border-orange-400/40" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-orange-400/40 -translate-y-1/2" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-orange-400/40 -translate-x-1/2 rotate-12" />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
