@@ -23,7 +23,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block px-4 py-2 mb-6 text-sm font-semibold tracking-widest uppercase bg-accent-green/20 text-accent-green rounded-full border border-accent-green/30">
-            Season 3.0
+            ACE BASKETBALL LEAGUE
           </span>
         </motion.div>
 
@@ -33,10 +33,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
         >
-          <span className="text-white">Games</span>
+          <span className="text-white">The</span>
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-yellow via-accent-green to-accent-sky">
-            &amp; Fun
+            Ace
           </span>
         </motion.h1>
 
@@ -46,8 +46,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          The ultimate basketball competition is back. Gather your squad,
-          showcase your skills, and compete for glory.
+          The ultimate basketball tournament for girls only. Showcase your skills,
+          compete for glory, and be part of The Ace championship.
         </motion.p>
 
         <motion.div

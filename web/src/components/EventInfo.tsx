@@ -5,7 +5,7 @@ const infoCards = [
   {
     icon: Calendar,
     label: 'Date',
-    value: 'Saturday, June 15, 2026',
+    value: 'May 7-9, 2026',
     color: 'text-accent-yellow',
     bg: 'bg-accent-yellow/10',
     border: 'border-accent-yellow/20',
@@ -13,7 +13,7 @@ const infoCards = [
   {
     icon: Clock,
     label: 'Time',
-    value: '9:00 AM - 5:00 PM',
+    value: '4:30 PM',
     color: 'text-accent-green',
     bg: 'bg-accent-green/10',
     border: 'border-accent-green/20',
@@ -21,7 +21,7 @@ const infoCards = [
   {
     icon: MapPin,
     label: 'Venue',
-    value: 'National Sports Arena, Lagos',
+    value: 'Unilorin Campus',
     color: 'text-accent-sky',
     bg: 'bg-accent-sky/10',
     border: 'border-accent-sky/20',
