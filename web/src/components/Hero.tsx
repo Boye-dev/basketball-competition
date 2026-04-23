@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ChevronRight } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -46,8 +46,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          The ultimate basketball tournament for girls only. Showcase your skills,
-          compete for glory, and be part of The Ace championship.
+          The ultimate basketball tournament for girls only. Showcase your
+          skills, compete for glory, and be part of The Ace championship.
         </motion.p>
 
         <motion.div
@@ -71,21 +71,20 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Basketball decorative element */}
+        {/* Logo decorative element */}
         <motion.div
           className="mt-16 flex justify-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <div className="relative w-40 h-40 md:w-56 md:h-56">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 shadow-2xl shadow-orange-500/30" />
-            <div className="absolute inset-2 rounded-full border-2 border-orange-400/40" />
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-orange-400/40 -translate-y-1/2" />
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-orange-400/40 -translate-x-1/2 rotate-12" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="Basketball Competition Logo"
+            className="w-40 h-40 md:w-56 md:h-56 object-contain drop-shadow-2xl"
+          />
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

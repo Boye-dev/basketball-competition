@@ -458,27 +458,23 @@ export default function RegisterPage() {
                   </h3>
                   <div className="space-y-2 text-sm">
                     <p>
-                      <span className="text-gray-400">Bank Name:</span>{" "}
-                      <span className="font-semibold text-white">
-                        First Bank of Nigeria
-                      </span>
+                      <span className="text-gray-400">Payment Method:</span>{" "}
+                      <span className="font-semibold text-white">Palmpay</span>
                     </p>
                     <p>
                       <span className="text-gray-400">Account Name:</span>{" "}
-                      <span className="font-semibold text-white">
-                        Basketball Competition Committee
-                      </span>
+                      <span className="font-semibold text-white">Maryam</span>
                     </p>
                     <p>
                       <span className="text-gray-400">Account Number:</span>{" "}
                       <span className="font-semibold text-white font-mono">
-                        3084521097
+                        8140368679
                       </span>
                     </p>
                     <p>
                       <span className="text-gray-400">Amount:</span>{" "}
                       <span className="font-semibold text-accent-yellow">
-                        ₦10,000
+                        ₦5,000
                       </span>
                     </p>
                   </div>

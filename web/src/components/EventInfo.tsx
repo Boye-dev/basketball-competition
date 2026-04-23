@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Calendar, Clock, MapPin } from 'lucide-react'
+import { Calendar, Clock, MapPin, CreditCard } from 'lucide-react'
 
 const infoCards = [
   {
@@ -26,6 +26,14 @@ const infoCards = [
     bg: 'bg-accent-sky/10',
     border: 'border-accent-sky/20',
   },
+  {
+    icon: CreditCard,
+    label: 'Payment',
+    value: '₦5,000 - Palmpay: 8140368679 (Maryam)',
+    color: 'text-purple-400',
+    bg: 'bg-purple-400/10',
+    border: 'border-purple-400/20',
+  },
 ]
 
 export default function EventInfo() {
@@ -50,7 +58,7 @@ export default function EventInfo() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {infoCards.map((card, i) => (
             <motion.div
               key={card.label}
