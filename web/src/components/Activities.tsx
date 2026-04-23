@@ -1,29 +1,32 @@
-import { motion } from 'framer-motion'
-import { Dribbble, Heart, Dice5 } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Dribbble, Heart, Target } from "lucide-react";
 
 const activities = [
   {
     icon: Dribbble,
-    title: 'Basketball',
-    description: 'Full-court 5v5 tournament with knockout rounds. Show your team\'s dominance on the court.',
-    gradient: 'from-orange-500 to-red-600',
-    shadowColor: 'shadow-orange-500/20',
+    title: "Basketball",
+    description:
+      "Full-court 5v5 tournament with knockout rounds. Show your team's dominance on the court.",
+    gradient: "from-orange-500 to-red-600",
+    shadowColor: "shadow-orange-500/20",
   },
   {
     icon: Heart,
-    title: 'Aerobics',
-    description: 'High-energy group fitness sessions to warm up and keep the crowd moving between games.',
-    gradient: 'from-pink-500 to-purple-600',
-    shadowColor: 'shadow-pink-500/20',
+    title: "Fun & Drinks",
+    description:
+      "Refreshment zone with snacks, beverages, and entertainment. Perfect for relaxing and socializing between games.",
+    gradient: "from-pink-500 to-purple-600",
+    shadowColor: "shadow-pink-500/20",
   },
   {
-    icon: Dice5,
-    title: 'Board Games',
-    description: 'Chill out zone with chess, scrabble, and card games. Perfect for downtime between matches.',
-    gradient: 'from-accent-green to-emerald-600',
-    shadowColor: 'shadow-green-500/20',
+    icon: Target,
+    title: "Skills Contest",
+    description:
+      "Free throw and three-point shooting contests. Test your accuracy and compete for individual glory.",
+    gradient: "from-accent-green to-emerald-600",
+    shadowColor: "shadow-green-500/20",
   },
-]
+];
 
 export default function Activities() {
   return (
@@ -42,7 +45,8 @@ export default function Activities() {
             What&apos;s <span className="text-accent-green">Happening</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-md mx-auto">
-            More than just basketball — a full day of fun activities for everyone.
+            More than just basketball — a full day of fun activities for
+            everyone.
           </p>
         </motion.div>
 
@@ -56,7 +60,9 @@ export default function Activities() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
             >
-              <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${activity.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div
+                className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${activity.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
+              >
                 <activity.icon className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-heading text-2xl font-bold mb-3 text-white group-hover:text-accent-yellow transition-colors duration-300">
@@ -70,5 +76,5 @@ export default function Activities() {
         </div>
       </div>
     </section>
-  )
+  );
 }
